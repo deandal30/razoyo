@@ -71,7 +71,7 @@ const CarContainer = ({results, setResults}) => {
 						aria-expanded="true" 
 						aria-controls={`accordion-flush-body-${index + 1}`}
 						onClick={open && car.id == id ? closeCarAccordion : openCarDetailsState} value={car.id}>
-						<span>{`${car.make} ${car.model} ${car.year}`}</span>
+						<span>{`${car.year} - ${car.make} ${car.model}`}</span>
 
 						<svg data-accordion-icon 
 							className={`w-3 h-3 ${open && car.id == id ? '' : 'rotate-180'} shrink-0`}  
