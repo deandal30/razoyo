@@ -5,26 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="csrf-token" content={csrf_token_value()}>
-    <%= live_title_tag assigns[:page_title] || "Razoyo", suffix: " · Phoenix Framework" %>
+    <%= live_title_tag assigns[:page_title] || "Razoyo", suffix: " · Assessment" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
   </head>
-  <body>
-    <header>
-      <section class="container">
-        <nav>
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
-    <%= @inner_content %>
+  <body class="">
+    <div class="grid grid-flow-row-dense grid-cols-2">
+      <div class="col-span-1 h-screen no-repeat bg-[url('https://i.pinimg.com/originals/8f/ae/64/8fae64077c20c981e9b1dc5975e528eb.jpg')] bg-no-repeat bg-cover bg-center"></div>
+      <div><%= @inner_content %></div>
+    </div>
   </body>
+  <footer class="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Daniel Eduard Andal</a>. All Rights Reserved.
+      </span>
+      <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+          <li>
+              <a href="https://github.com/deandal30/razoyo" class="mr-4 hover:underline md:mr-6">GitHub</a>
+          </li>
+          <li>
+              <a href="https://www.linkedin.com/in/danieleduardandal/" class="hover:underline">Linkedin</a>
+          </li>
+      </ul>
+  </footer>
 </html>

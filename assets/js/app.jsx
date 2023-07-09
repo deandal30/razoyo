@@ -1,6 +1,5 @@
 // We import the CSS which is extracted to its own file by esbuild.
 // Remove this line if you add a your own CSS build pipeline (e.g postcss).
-import "../css/app.css"
 
 // If you want to use Phoenix channels, run `mix help phx.gen.channel`
 // to get started and then uncomment the line below.
@@ -43,3 +42,14 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+import React from "react";
+import ReactDOM from "react-dom"
+import MainContainer from "./cars/main"
+
+const greeting = document.getElementById("container")
+
+ReactDOM.render(
+    <div className="text-gray-900 p-8 w-full">
+        <MainContainer /> 
+    </div>, greeting
+)

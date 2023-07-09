@@ -1,0 +1,38 @@
+<h1>Listing Cars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Make</th>
+      <th>Year</th>
+      <th>Model</th>
+      <th>Img url</th>
+      <th>Price</th>
+      <th>Mpg</th>
+      <th>Seats</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for car <- @cars do %>
+    <tr>
+      <td><%= car.make %></td>
+      <td><%= car.year %></td>
+      <td><%= car.model %></td>
+      <td><%= car.img_url %></td>
+      <td><%= car.price %></td>
+      <td><%= car.mpg %></td>
+      <td><%= car.seats %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.car_path(@conn, :show, car) %></span>
+        <span><%= link "Edit", to: Routes.car_path(@conn, :edit, car) %></span>
+        <span><%= link "Delete", to: Routes.car_path(@conn, :delete, car), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Car", to: Routes.car_path(@conn, :new) %></span>

@@ -18,6 +18,13 @@ defmodule RazoyoWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/cars", CarController
+
+    scope "/api/v1" do
+      get "/cars", CarController, :search
+      get "/car", CarController, :show_data
+      get "/car/filter", CarController, :filter
+    end
   end
 
   # Other scopes may use custom stacks.
